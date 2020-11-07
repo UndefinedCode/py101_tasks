@@ -13,6 +13,29 @@
 
 Тебе может понадобится модуль random, цикл while и ветвления
 """
+import random
+randomNumber = random.randrange(0, 1000000)
+hello = "Вас приветствует 'Рандомотрон-3000', загадайте ваше число от 0 до 1000000: "
+userNumber = input(hello)
 
-if __name__ == '__main__':
-    pass
+if (userNumber == "exit" or userNumber == ""):
+    raise SystemExit
+
+if userNumber.isdigit() == False:
+    print("Вы ввели не число или отрицательное число")
+    raise SystemExit
+
+integerUserNumber = int(userNumber)
+
+if (integerUserNumber < 0 or integerUserNumber > 1000000):
+    print("Число не входит в допустимый диапазон")
+    raise SystemExit
+
+if (integerUserNumber < randomNumber):
+    print("Загаданное число меньше случайного")
+
+if (integerUserNumber > randomNumber):
+    print("Загаданное число больше случайного")
+
+if (integerUserNumber == randomNumber):
+    print("Поздравляем, вы угадали число!")

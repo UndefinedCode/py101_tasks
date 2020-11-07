@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 Программа выводит на экран числа от 1 до 100 включительно, с новой строки.
 
@@ -9,4 +10,18 @@
 """
 
 if __name__ == '__main__':
-    pass
+    def getZipAndZap(num):
+        zip = num % 3 == 0
+        zap = num % 5 == 0
+
+        if zip and zap:
+            return 'zip-zap'
+        if zip:
+            return 'zip'
+        if zap:
+            return 'zap'
+
+        return num
+
+    for num in range(1, 100):
+        print(getZipAndZap(num))

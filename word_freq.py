@@ -21,7 +21,7 @@ if __name__ == '__main__':
     for i in range(len(wordsArr)):
         word = wordsArr[i]
         last = word[len(word) - 1]
-        splitArg = ['.', ',', '!', '?']
+        splitArg = ['.', ',', '!', '?', ')', '(']
 
         if last in splitArg:
             wordsArr[i] = wordsArr[i].replace(last, '')
@@ -29,11 +29,12 @@ if __name__ == '__main__':
     for word in wordsArr:
         stopwordsArr = stopwords.words('russian')
 
-        if word not in stopwordsArr:
-            if word in result:
-                result[word] = result[word] + 1
+        if word not in stopwordsArr and not word.isdigit():
+            loverWords = word.lower()
+            if loverWords in result:
+                result[loverWords] = result[loverWords] + 1
             else:
-                result[word] = 1
+                result[loverWords] = 1
 
     topWord = []
 
